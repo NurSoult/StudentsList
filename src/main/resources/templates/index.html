@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th = "http://www.thymeleaf.org">
+
+
+    <head th:insert="head.html">
+        <meta charset="UTF-8">
+        <title>Student List</title>
+    </head>
+
+    <body>
+
+        <div class="container">
+
+            <div class="row" th:insert="navbar.html">
+            </div>
+
+            <div class="container mt-3">
+
+                        <div class="col-12">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>NAME</th>
+                                        <th>SURNAME</th>
+                                        <th>EXAM</th>
+                                        <th>MARK</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="stud : ${students}" th:style="${stud.exam < 50?'color: red;':''}">
+                                        <td th:text="${stud.id}"></td>
+                                        <td th:text="${stud.name}"></td>
+                                        <td th:text="${stud.surname}"></td>
+                                        <td th:text="${stud.exam}"></td>
+                                        <td th:text="${stud.mark}"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                </div>
+
+            </div>
+
+        </div>
+
+    </body>
+
+
+
+</html>
